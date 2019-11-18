@@ -1,0 +1,73 @@
+/* pages/result/result.wxss */
+
+.title{
+  font-size: 50rpx;
+  font-weight: bold;
+  border-color: black;
+  border-style: dashed none none none;
+  border-width: 3rpx;
+  padding: 20rpx 37.5rpx;
+}
+.quesNairename{
+  font-size: 40rpx;
+  border-color: black;
+  border-style: none none dashed none;
+  border-width: 3rpx;
+  padding: 0 37.5rpx 30rpx 37.5rpx;
+}
+.result{
+  padding: 0 37.5rpx 300rpx 37.5rpx;
+}
+.question{
+  padding: 40rpx 0 0 0;
+}
+.table{
+  width: 100%;
+  border-width: 1rpx 0 0 1rpx;
+  border-color: black;
+  border-style: solid;
+}
+.th{
+  width: 100%;
+  display: flex;
+  height: 5vh;
+  text-align: center;
+  line-height: 5vh;
+  background-color: rgb(248, 153, 153);
+  font-size: 23rpx;
+}
+.tr{
+  display: flex;
+  height: 5vh;
+  text-align: center;
+  line-height: 5vh;
+  background-color: white;
+}
+.td{
+  height: 5vh;
+  border-width: 0 1rpx 1rpx 0;
+  border-color: black;
+  border-style: solid;
+  font-size: 25rpx;
+  margin: -1rpx;
+}
+.td1{
+  width: 352rpx;
+  overflow: hidden;
+}
+.td2{
+  width: 181rpx;
+}
+.td3{
+  width: 181rpx;
+}
+.charts{
+  background-color: gainsboro;
+}
+.pie{
+  padding: 0;
+  width: 340px;
+  height: 270px;
+  background-color: white;
+  margin: auto;
+}

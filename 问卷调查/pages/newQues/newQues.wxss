@@ -1,0 +1,32 @@
+/* pages/newQues/newQues.wxss */
+.texts{
+  font-size: 28rpx;
+  color: rgb(179, 167, 167);
+  position: relative;
+  left: 60rpx;
+}
+.wjname{
+  background-color: white;
+  height: 7vh;
+  width: 635rpx;
+  padding: 0 20rpx;
+  position: relative;
+  left: 37.5rpx;
+}
+
+.explain{
+  background-color: white;
+  height: 20vh;
+  width: 635rpx;
+  position: relative;
+  left: 37.5rpx;
+  padding: 20rpx;
+}
+.addquestion{
+  width: 400rpx;
+  background: #09BB07;
+  color: white;
+  position: relative;
+  top: 20rpx;
+  border-radius: 98rpx;
+}

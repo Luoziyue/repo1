@@ -1,0 +1,23 @@
+<!--pages/addQuestion/addQuestion.wxml-->
+<text class='wjname'>{{quesNaire.qnname}}\n</text>
+<text class='explain'>{{quesNaire.explains}}</text>
+<view class='allQues'>
+  <text class='texts'>全部问题</text>
+  <view class='questions'>
+    <block wx:if="{{questions.length!=0}}">
+      <block wx:for="{{questions}}" wx:key>
+        <view class='question' bindtap='clickQuestion' data-questionid='{{item.tid}}'>
+          <text class='title'>
+          {{index+1}}.{{item.tname}}({{item.type==1?"单选":item.type==2?"多选":"简答"}}{{item.must_do? "，必答":""}})
+          </text>
+          <text class='options'>
+            <block wx:for="{{item.options}}" wx:for-item="option" wx:key>{{option.tnumber}}.{{option.optionname}}
+            </block>
+          </text>
+        </view>
+      </block>
+    </block>
+    <block wx:else>暂无题目</block>
+  </view>
+ <button class='addquestion' form-type='submit' bindtap='toChooseQues'>添加题目</button>
+</view>

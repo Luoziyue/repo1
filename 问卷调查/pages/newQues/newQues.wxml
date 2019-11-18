@@ -1,0 +1,12 @@
+<!--pages/newQues/newQues.wxml-->
+
+<form class='newQues' bindsubmit='addQuestionNaire'>
+  <text class='texts'>问卷名：</text>
+  <input class='wjname' placeholder='请输入问卷名' name='qnName' value='{{quesNaire.qnname}}'>
+  </input>
+  <text class='texts'>说明：</text>
+  <textarea class='explain' placeholder='请输入问卷说明，不超过140字' name='explains' 
+  value='{{quesNaire.explains}}'>
+  </textarea>
+  <button form-type='submit' class='addquestion'>保存问卷</button>
+</form>

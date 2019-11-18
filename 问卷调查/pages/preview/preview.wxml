@@ -1,0 +1,82 @@
+<!--pages/preview/preview.wxml-->
+<view class='quesNaire'>
+  <form bindsubmit='quesNaireSubmit'>
+    <view class='quesNaireName'>关于上分开始看风景的调查</view>
+    <input hidden='hidden'>quesNaireId</input>
+    <view class='explain'>这是一份福建省大口径方iOS获得调查，请认真填写</view>
+    <view class='quesions'>
+      <view class='quesion'>
+        <text class='quesName'>1.见面再喝到了熏醉，风雨中细说到心里</text>
+        <view class='key'>
+          <radio-group >
+            <radio value='optionId1'>A.sb</radio>
+            <radio value='optionId2'>B.sb</radio>
+            <radio value='optionId3'>C.sb</radio>
+            <radio value='optionId4'>D.sb</radio>
+          </radio-group>
+        </view>
+      </view>
+      <view class='quesion'>
+        <text class='quesName'>1.见面再喝到了熏醉，风雨中细说到心里</text>
+        <view class='key'>
+          <radio-group >
+            <radio value=''>A.sb</radio>
+            <radio>B.sb</radio>
+            <radio>B.sb</radio>
+          </radio-group>
+        </view>
+      </view>
+      <view class='quesion'>
+        <text class='quesName'>1.见面再喝到了熏醉，风雨中细说到心里</text>
+        <view class='key'>
+          <checkbox-group>
+            <checkbox value=''>A.sb</checkbox>
+            <checkbox>B.sb</checkbox>
+            <checkbox>B.sb</checkbox>
+          </checkbox-group>
+        </view> 
+      </view>
+      <view class='quesion'>
+        <text class='quesName'>1.见面再喝到了熏醉，风雨中细说到心里</text>
+        <view class='key'>
+          <textarea class='simple'></textarea>
+        </view>
+      </view>
+      <label wx:for='{{questions}}' wx:key>   
+        <label wx:if='{{item.type==1}}'>  <!--单选题-->
+          <view class='quesion'>
+            <text class='quesName'>{{index+1}}.{{item.tname}}({{item.type==1?"单选":item.type==2?"多选":"简答"}}{{item.must_do? "，必答":""}})</text>
+            <view class='key'>
+              <radio-group name='{{item.tid}}'>
+                <label wx:for-items='{{item.options}}' wx:for-item='option' wx:key>
+                  <radio value='{{option.oid}}'>{{option.tnumber}}.{{option.optionname}}</radio>
+                </label>
+              </radio-group>
+            </view>
+          </view>
+        </label>
+        <label wx:elif='{{item.type==2}}'>   <!--多选题-->
+          <view class='quesion'>
+            <text class='quesName'>{{index+1}}.{{item.tname}}({{item.type==1?"单选":item.type==2?"多选":"简答"}}{{item.must_do? "，必答":""}})</text>
+            <view class='key'>
+              <checkbox-group name='{{item.tid}}'>
+                <label wx:for-items='{{item.options}}' wx:for-item='option' wx:key>
+                  <checkbox value='{{option.oid}}'>{{option.tnumber}}.{{option.optionname}}</checkbox>
+                </label>
+              </checkbox-group>
+            </view> 
+          </view>
+        </label>
+        <label wx:else>
+          <view class='quesion'>
+            <text class='quesName'>{{index+1}}.{{item.tname}}({{item.type==1?"单选":item.type==2?"多选":"简答"}}{{item.must_do? "，必答":""}})</text>
+            <view class='key'>
+              <textarea class='simple' name='{{item.tid}}'></textarea>
+            </view>
+          </view>
+        </label>
+      </label>
+    </view>
+    <button class='submit' form-type='submit'>提交</button>
+  </form>
+</view>

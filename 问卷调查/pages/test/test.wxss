@@ -1,0 +1,11 @@
+/* pages/test/test.wxss */
+.canvas{
+  padding: 0;
+  width: 340px;
+  height: 270px;
+  background-color: gray;
+  margin: auto;
+}
+.view1{
+  background-color: gainsboro;
+}

@@ -1,0 +1,108 @@
+<!--pages/result/result.wxml-->
+<view class='main'>  
+  <view class='title'>调查结果</view>
+  <view class='quesNairename'>{{quesNaire.qnname}}</view>
+  <view class='result'>
+    <view class='question'>
+      <view class='questionname'>1.快要过完的春天[单选]</view>
+      <view class='table'>
+        <view class='th'>
+          <view class='td td1'>选项</view>
+          <view class='td td2'>选择人数</view>
+          <view class='td td3'>占比</view>
+        </view>
+        <view class='tr'>
+          <view class='td td1'>哈哈哈哈</view>
+          <view class='td td2'>5</view>
+          <view class='td td3'>66%</view>
+        </view>
+        <view class='tr'>
+          <view class='td td1'>4哈哈哈哈</view>
+          <view class='td td2'>5</view>
+          <view class='td td3'>60%</view>
+        </view>
+        <view class='tr'>
+          <view class='td td1'>嘿嘿哈哈大萨达十大法师法师法大声道</view>
+          <view class='td td2'>5</view>
+          <view class='td td3'>60%</view>
+        </view>
+      </view>
+    </view><!--question_end-->
+    <view class='question'>
+      <view class='questionname'>1.快要过完的春天[单选]</view>
+      <view class='table'>
+        <view class='th'>
+          <view class='td td1'>选项</view>
+          <view class='td td2'>选择人数</view>
+          <view class='td td3'>占比</view>
+        </view>
+        <view class='tr'>
+          <view class='td td1'>哈哈哈哈</view>
+          <view class='td td2'>5</view>
+          <view class='td td3'>66%</view>
+        </view>
+        <view class='tr'>
+          <view class='td td1'>4哈哈哈哈</view>
+          <view class='td td2'>5</view>
+          <view class='td td3'>60%</view>
+        </view>
+        <view class='tr'>
+          <view class='td td1'>嘿嘿哈哈大萨达十大法师法师法大声道</view>
+          <view class='td td2'>5</view>
+          <view class='td td3'>60%</view>
+        </view>
+      </view>
+    </view><!--question_end-->
+    <label wx:for-items='{{questions}}' wx:for-item='question' wx:key>
+      <label wx:if='{{question.type==1 || question.type==2}}'>  <!--判断是选择还是填空-->
+        <!--选择题-->
+        <view class='question'>
+          <view class='questionname'>{{index+1}}.{{question.tname}}[{{question.type==1? '单选':'多选'}}]</view>
+          <view class='table'>
+            <view class='th'>   <!--选择题表头-->
+              <view class='td td1'>选项</view>
+              <view class='td td2' bindtap='changeOptionSort' data-index='{{index}}'>选择人数</view>
+              <view class='td td3'>占比</view>
+            </view>
+            <label wx:for-items = '{{question.options}}' wx:for-item='option' wx:key>
+              <view class='tr'>
+                <view class='td td1'>{{option.optionname}}</view>
+                <view class='td td2'>{{option.answers}}</view>
+                <view class='td td3'>{{option.proportion}}%</view>
+              </view>
+            </label>
+            <view class='th'>   <!--选择题表尾-->
+              <view class='td td1'>总人数</view>
+              <view class='td td2'>{{question.answers}}</view>
+              <view class='td td3' bindtap='openPei' data-index='{{index}}'>饼图</view>
+            </view>
+          </view>  <!--table-end-->
+          <!--饼图-->
+          <label wx:if='{{question.showpei}}'>
+            <view class='charts'>
+              <canvas canvas-id='{{question.tid}}' class='pie'></canvas>
+            </view>
+          </label>
+        </view>    <!--question_end-->
+      </label>   <!--判断是选择还是填空的label-->
+      <label wx:else>
+        <!--填空题-->
+        <view class='question'>
+          <view class='questionname'>{{index+1}}.{{question.tname}}[填空]</view>
+          <view class='table'>
+            <view class='th'> 
+              <view class='td td1'>回答人数</view>
+              <view class='td td2'>{{question.answers}}</view>
+              <view class='td td3' bindtap='openPei' data-index='{{index}}'>数据</view>
+            </view>
+            <label wx:if='{{question.showpei}}'>
+              <label wx:for-items='{{question.values}}' wx:for-item='value' wx:key>
+                <view>{{value}}</view>
+              </label>
+            </label>
+          </view>  <!--table-end-->
+        </view>
+      </label>
+    </label>  <!--for-questions-end-->
+  </view><!--result_end-->
+</view>

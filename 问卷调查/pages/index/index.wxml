@@ -1,0 +1,39 @@
+<!--pages/test/test.wxml-->
+<text class='texts'>全部问卷：</text>
+<view class='questionnaire'>
+  <view class='question' bindtap='clickQuesNaire' data-id='1'>
+    <view class='title'>关于大学生生活习惯的调查</view>
+    <view class='font'>
+      <text class='answer'>5人参与</text>
+      <text class='time'>2019.4.13 13:03</text>
+    </view>
+  </view>
+  <view class='question' bindtap='clickQuesNaire' data-id='2'>
+    <view class='title'>关于中学生生活习惯的调查</view>
+    <view class='font'>
+      <text class='answer'>5人参与</text>
+      <text class='time'>2019.4.13 13:03</text>
+    </view>
+    
+  </view>
+  <view class='question' bindtap='clickQuesNaire' data-id='3'>
+    <view class='title'>关于小学生生活习惯的调查</view>
+    <view class='font'>
+      <text class='answer'>5人参与</text>
+      <text class='time'>2019.4.13 13:03</text>
+    </view>
+  </view>
+  <view>
+    <block wx:for="{{questionNaires}}" wx:key>
+      <view class='question' bindtap='clickQuesNaire' data-id='{{item.id}}'>
+        <view class='title'>{{item.qnname}}</view>
+        <view class='font'>
+          <text class='answer'>{{item.answers}}人参与</text>
+          <text class='time'>{{item.createtime}}</text>
+        </view>
+      </view>
+    </block>
+  </view>
+  <button class='newQues' bindtap='tonewQues'>新建问卷</button>
+</view>
+

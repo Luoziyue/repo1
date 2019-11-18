@@ -1,0 +1,83 @@
+/* pages/chooseQues/chooseQues.wxss */
+
+.out{
+  margin: 50rpx 0;
+}
+.quesname{
+  background-color: white;
+  height: 7vh;
+  width: 635rpx;
+  padding: 0 20rpx;
+  position: relative;
+  left: 37.5rpx;
+}
+.choosetype{
+  background-color: white;
+  width: 635rpx;
+  padding: 40rpx 20rpx;
+  position: relative;
+  left: 37.5rpx;
+}
+.radios{
+  text-align: center;
+}
+radio{
+  margin: 0 30rpx;
+}
+.options{
+  background-color: white;
+  width: 575rpx;
+  padding: 10rpx 50rpx;
+  position: relative;
+  left: 37.5rpx;
+}
+.must_do{
+  background-color: white;
+  width: 635rpx;
+  padding: 10rpx 20rpx;
+  margin: 20rpx 0;
+  position: relative;
+  left: 37.5rpx;
+}
+.do_or_no{
+  position: relative;
+  left: 380rpx;
+}
+.saveqeustion{
+  width: 400rpx;
+  background: #09BB07;
+  color: white;
+  position: relative;
+  top: 20rpx;
+  border-radius: 98rpx;
+}
+.optionview{
+  border-bottom: 2rpx silver solid;
+  margin-top: 40rpx;
+  display: flex;
+}
+.option{
+  width: 530rpx;
+}
+.holders{
+  font-size: 25rpx;
+}
+button::after {
+  border: none;
+}
+.addoption{
+  width: 300rpx;
+  height: 5vh;
+  background-color: white;
+  border: 1rpx silver dashed;
+  position: relative;
+  font-size: 25rpx;
+  margin: 20rpx auto;
+  display:block;
+}
+.deleteImg{
+  width: 35rpx;
+  height: 35rpx;
+  position: relative;
+  top: 7rpx;
+}

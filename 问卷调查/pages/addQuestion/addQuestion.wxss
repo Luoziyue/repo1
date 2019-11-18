@@ -1,0 +1,36 @@
+/* pages/addQuestion/addQuestion.wxss */
+.wjname{
+  font-size: 45rpx;
+  position: relative;
+  left: 37.5rpx;
+}
+.explain{
+  position: relative;
+  left: 37.5rpx;
+  font-size: 28rpx;
+}
+.allQues{
+  position: relative;
+  top: 4vh;
+}
+.addquestion{
+  width: 400rpx;
+  background: #09BB07;
+  color: white;
+  position: relative;
+  top: 20rpx;
+  border-radius: 98rpx;
+}
+.questions{
+  width: 635rpx;
+  padding: 20rpx;
+  background-color: white;
+  position: relative;
+  left: 37.5rpx;
+}
+.options{
+  font-size: 25rpx;
+  position: relative;
+  left: 30rpx;
+}
+

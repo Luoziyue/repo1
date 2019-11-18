@@ -1,0 +1,38 @@
+{
+  "pages": [
+    
+    "pages/login/login",
+    "pages/chooseQues/chooseQues",
+    "pages/addQuestion/addQuestion",
+    "pages/test/test",
+    "pages/index/index",
+    "pages/newQues/newQues",
+    "pages/logs/logs",
+    "pages/result/result",
+    "pages/preview/preview"
+    
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "问卷调查",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "我的问卷",
+        "iconPath": "image/wenda_1a.png",
+        "selectedIconPath": "image/wenda_1.png"
+      },
+      {
+        "pagePath": "pages/test/test",
+        "text": "我的回答",
+        "iconPath": "image/wendaa.png",
+        "selectedIconPath": "image/wenda.png"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
+}

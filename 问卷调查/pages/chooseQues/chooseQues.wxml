@@ -1,0 +1,39 @@
+<!--pages/chooseQues/chooseQues.wxml-->
+<view>
+  <form bindsubmit='saveQuestion'>
+    <view>
+      <text class='texts'>题目：</text>
+      <input class='quesname' name='quesname' placeholder='请输入题目名' value='{{oldQuestion.tname}}'></input>
+    </view>
+    <view class='out'>
+      <text class='texts'>类型：</text>
+      <view class='choosetype'>
+        <radio-group name='type' class="radios" bindchange='radioChange'>
+          <radio value='1' checked='true'>单选 </radio>
+          <radio value='2' checked='{{oldQuestion.type==2}}'>多选 </radio>
+          <radio value='3' checked='{{oldQuestion.type==3}}'>简答 </radio>
+        </radio-group>
+      </view>
+      <view wx:if='{{radiovalue!=3}}' class='opti'>
+        <text class='texts'>选项：</text>
+        <view class='options'>
+          <block wx:for='{{optionList}}' wx:key>
+          <view class='optionview'>
+              <input class='option' placeholder='输入选项{{item.id}}' value='{{item.value}}' bindinput='inputchange' name='potion{{item.id}}' data-optionid='{{item.id}}' placeholder-class='holders'>
+              </input>
+              <image src='../../image/delete.png' class='deleteImg' bindtap='deleteoption' data-optionid='{{item.id}}'>
+              </image>
+            </view>
+          </block>
+          <button class='addoption' bindtap='clickAdd'>添加选项</button>
+        </view>
+      </view>
+    </view>
+    
+    <view class='must_do'>
+      <label>是否必做</label>
+      <switch checked='{{oldQuestion.must_do==null? true:oldQuestion.must_do}}' class='do_or_no' name='must_do'></switch>
+    </view>
+    <button class='saveqeustion' form-type='submit' >保存</button>
+  </form>
+</view>
