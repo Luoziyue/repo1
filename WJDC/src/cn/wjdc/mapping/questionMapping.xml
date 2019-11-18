@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="cn.wjdc.dao.QuestionDao">
+	<insert id="addQuestion" parameterType="cn.wjdc.entity.Question">
+		INSERT INTO question(tid,tname,qid,type,must_do) VALUES (#{tid},#{tname},#{qid},#{type},#{must_do})
+	</insert>
+	
+	<select id="findQuestionByQid" parameterType="Long" resultType="cn.wjdc.entity.Question">
+		select *from question where qid=#{quesNaireId} order by type 
+	</select>
+	
+	<delete id="delQuestionByQid" parameterType="Long">
+		delete from question where qid=#{quesNaireId}
+	</delete>
+	<delete id="delQuestionByTid" parameterType="String">
+		delete from question where tid=#{tid}
+	</delete>
+	
+	<update id="updateQuestion" parameterType="cn.wjdc.entity.Question">
+		update question set tname=#{tname},qid=#{qid},type=#{type},must_do=#{must_do} where tid=#{tid}
+	</update>
+	<update id="answersAdd" parameterType="String">
+		update question set answers=answers+1 where tid=#{tid}
+	</update>
+</mapper>

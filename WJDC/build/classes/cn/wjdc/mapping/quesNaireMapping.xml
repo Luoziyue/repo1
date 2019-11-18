@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- namespace必须定义，非绑定到类或是接口的方式 -->
+<mapper namespace="cn.wjdc.dao.QuesNaireDao">
+	<select id="findQuesNaireByOpenid" parameterType="String" resultType="cn.wjdc.entity.QuestionNaire">
+		select *from questionnaire where useropenid=#{openid}
+	</select>
+	
+	<insert id="addQuesNaire" parameterType="cn.wjdc.entity.QuestionNaire">
+		insert into questionnaire(qnname,useropenid,createtime,explains)values(#{qnname},#{useropenid},#{createtime},#{explains})
+	</insert>
+	
+	<update id="updateQuesNaire" parameterType="cn.wjdc.entity.QuestionNaire">
+		update questionnaire set qnname=#{qnname},createtime=#{createtime},explains=#{explains}
+		where id=#{id}
+	</update>
+	<update id="answersAdd" parameterType="String">
+		update questionnaire set anwers=anwers+1 
+		where id in (SELECT qid FROM question where tid=#{tid})
+	</update>
+	
+	<delete id="delQuesNaireById" parameterType="Long">
+		delete from questionnaire where id=#{quesNaireId}
+		
+	</delete>
+</mapper>

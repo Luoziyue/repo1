@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- namespace必须定义，非绑定到类或是接口的方式 -->
+<mapper namespace="cn.wjdc.dao.OptionDao">
+	<insert id="addOptions" parameterType="java.util.List">
+		insert into options(tid,tnumber,optionname) values
+		<foreach collection="list" item="item" separator=",">
+			(#{item.tid},#{item.tnumber},#{item.optionname})
+		</foreach>
+	</insert>
+	<insert id="addShortAnswer" >
+		insert into short_answers(tid,answer) values(#{tid},#{value})
+	</insert>
+	
+	<select id="findOptionByTid" parameterType="String" resultType="cn.wjdc.entity.Option">
+		select *from options where tid=#{tid}
+	</select>
+	<select id="finValueByTid" parameterType="String" resultType="String">
+		select answer from short_answers where tid=#{tid}
+	</select>
+	
+	<delete id="delOptionsWithNotQues">
+		delete from options where tid not in (select tid from question)
+	</delete>
+	
+	<delete id="delOptionByTid" parameterType="String">
+		delete  from options where tid=#{tid}
+	</delete>
+	
+	<update id="answersAdd" parameterType="Long">
+		update options set answers=answers+1 
+		where oid=#{oid}
+	</update>
+</mapper>

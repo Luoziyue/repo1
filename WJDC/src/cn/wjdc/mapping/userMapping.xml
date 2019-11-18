@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- namespace必须定义，非绑定到类或是接口的方式 -->
+<mapper namespace="cn.wjdc.dao.UserDao">
+	<insert id="addUser" parameterType="cn.wjdc.entity.User">
+		insert into user(nickname,sex,city,province,country,avatarUrl,openid)
+		values(#{nickName},#{sex},#{city},#{province},#{country},#{avatarUrl},#{openid})
+	</insert>
+	
+	<select id="findByOpenid" parameterType="String" resultType="int">
+		select count(*) from user where openid=#{openid}
+	</select>
+</mapper>
